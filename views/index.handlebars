@@ -22,65 +22,71 @@
 					</form>
 
 				</div>
+				</noddiv>
 			</div>
+
+			{{!-- <a class="btn btn-primary btn-lg" href="#" role="button">See more</a> --}}
 		</div>
 
-		{{!-- <a class="btn btn-primary btn-lg" href="#" role="button">See more</a> --}}
+
 	</div>
 
+		<div class="container">
 
 
 
 
-
-	<div class="row">
-		<div class="col-md-12 text-center">
-			{{!-- <img src="/assets/images/burger.png" alt="burger" /> --}}
-			<h1> E-Burger! </h1>
-		</div>
-		<div class="col-md-6">
-			<div class="text-center">
-				<h5>New Burger</h5>
-
-			</div>
-
-			{{#each burger_data}}
-			{{#unless this.devoured}}
-
-			<div class="col">
-
-				<div class="card">
-
-					<div class="card-header">
-						Your choice:
-					</div>
-					<div class="card-body text-center">
-						<h5 class="card-title">{{this.id}}. {{this.burger_name}}</h5>
-
-						<form class="devour-form button-size">
-
-
-							<input input type="hidden" class="burger_id" type="text" value={{this.id}}><br>
-							<button type="submit" class="btn btn-warning btn-default">Devour it!</button>
-						</form>
-
-					</div>
+			<div class="row">
+				<div class="col-md-12 text-center">
+					{{!-- <img src="/assets/images/burger.png" alt="burger" /> --}}
+					<h1> E-Burger! </h1>
 				</div>
+				<div class="col-md-6">
+					<div class="text-center">
+						<h5>New Burger</h5>
 
+					</div>
+
+					{{#each burger_data}}
+					{{#unless this.devoured}}
+
+					<div class="col">
+
+						<div class="card">
+
+							<div class="card-header">
+								Your choice:
+							</div>
+							<div class="card-body text-center cardo">
+								{{!-- <h1 class="card-title ">{{this.id}}. {{this.burger_name}}</h1> --}}
+								<h1 class="card-title "> {{this.burger_name}}</h1>
+
+								<form class="devour-form button-size">
+
+
+									<input input type="hidden" class="burger_id" type="text" value={{this.id}}><br>
+									<button type="submit" class="btn btn-warning btn-default">Devour it!</button>
+								</form>
+
+							</div>
+						</div>
+
+					</div>
+
+					{{/unless}}
+					{{/each}}
+
+				</div>
+				<div class="col-md-6 text-center">
+
+					<h5>Burger History</h5>
+					{{#each burger_data}}
+					{{#if this.devoured}}
+					<input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}">
+					{{/if}}
+					{{/each}}
+				</div>
 			</div>
-
-			{{/unless}}
-			{{/each}}
-
 		</div>
-		<div class="col-md-6 text-center">
 
-			<h5>Burger History</h5>
-			{{#each burger_data}}
-			{{#if this.devoured}}
-			<input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}">
-			{{/if}}
-			{{/each}}
-		</div>
 	</div>
-</div>

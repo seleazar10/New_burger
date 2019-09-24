@@ -8,3 +8,14 @@
     background-size: cover;
     color: white;
    }
+
+   .cardo{
+
+    background-image: linear-gradient(#000000a4, #000000ab), url('../images/burgers.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    font-weight: bolder;
+   }
