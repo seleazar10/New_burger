@@ -12,13 +12,13 @@ router.get("/", function(req, res) {
 });
 
 router.get("/burgers", function(req, res) {
-  burger.all(function(burgers) {
+  burger.all(function(burgInf) {
     res.render("index", { burger_data: burgInf });
   });
 });
 
 router.post("/burgers/create", function(req, res) {
-  burger.create(req.body.burger_name, function(burgInf) {
+  burger.create(req.body.burger_name, function(result) {
     //redirect to /burgers
     console.log(result);
     res.redirect("/");
