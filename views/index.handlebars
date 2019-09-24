@@ -4,19 +4,19 @@
 
 	<div class="jumbotron">
 		<h1 class="display-4 mt-3 text-center">Welcome to E-Burger!</h1>
-		
+
 		<h3 class="text-center">Home of the Stama burgers</h3>
 		<hr class="my-4">
 
 		<div class="container mt-5">
 			{{!-- <p>Enter a burger you want to eat below!</p> --}}
 			<div class="row">
-				<div class="col-md-12 mt-5 ">
+				<div class="col-md-6 mt-5 ">
 					<form action="/burgers/create" method="POST">
-						<input type="text" class="form-control" name="burger_name" value="" 
+						<input type="text" class="form-control" name="burger_name" value=""
 							placeholder="Enter a burger you want to eat here!">
 						<button type="submit" class="btn btn-primary mt-3">Submit
-							Your Burger</button>
+						</button>
 
 						{{!-- <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button> --}}
 					</form>
@@ -84,4 +84,3 @@
 		</div>
 	</div>
 </div>
-
