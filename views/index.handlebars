@@ -1,16 +1,32 @@
-
-
 <div class="container">
 
 
 
-<div class="jumbotron">
-  <h1 class="display-4">Welcome to E-Burger!</h1>
-  <p class="lead">Home of the Stama burgers</p>
-  <hr class="my-4">
-  
-  {{!-- <a class="btn btn-primary btn-lg" href="#" role="button">See more</a> --}}
-</div>
+	<div class="jumbotron">
+		<h1 class="display-4 mt-3 text-center">Welcome to E-Burger!</h1>
+		
+		<h3 class="text-center">Home of the Stama burgers</h3>
+		<hr class="my-4">
+
+		<div class="container mt-5">
+			{{!-- <p>Enter a burger you want to eat below!</p> --}}
+			<div class="row">
+				<div class="col-md-12 mt-5 ">
+					<form action="/burgers/create" method="POST">
+						<input type="text" class="form-control" name="burger_name" value="" 
+							placeholder="Enter a burger you want to eat here!">
+						<button type="submit" class="btn btn-primary mt-3">Submit
+							Your Burger</button>
+
+						{{!-- <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button> --}}
+					</form>
+
+				</div>
+			</div>
+		</div>
+
+		{{!-- <a class="btn btn-primary btn-lg" href="#" role="button">See more</a> --}}
+	</div>
 
 
 
@@ -18,61 +34,54 @@
 
 
 	<div class="row">
-		<div class="col-md-12 text-center" id="top-bar">
+		<div class="col-md-12 text-center">
 			{{!-- <img src="/assets/images/burger.png" alt="burger" /> --}}
 			<h1> E-Burger! </h1>
 		</div>
-		<div class="col-md-6 text-center" class="task">
-			<div class="row">
-			  {{#each burger_data}}
-			  	{{#unless this.devoured}}
-				<div class="col text-center">
-					<p>
-						
-						{{this.id}}. {{this.burger_name}}
+		<div class="col-md-6">
+			<div class="text-center">
+				<h5>New Burger</h5>
+
+			</div>
+
+			{{#each burger_data}}
+			{{#unless this.devoured}}
+
+			<div class="col">
+
+				<div class="card">
+
+					<div class="card-header">
+						Your choice:
+					</div>
+					<div class="card-body text-center">
+						<h5 class="card-title">{{this.id}}. {{this.burger_name}}</h5>
 
 						<form class="devour-form button-size">
 
-							
-						<input input type="hidden" class="burger_id" type="text" value={{this.id}}><br>
-						<button type="submit" class="btn btn-primary btn-default">Devour it!</button>
-					</form>
 
-						
-					</p>
-				  		<!-- {{this.Date}} -->
+							<input input type="hidden" class="burger_id" type="text" value={{this.id}}><br>
+							<button type="submit" class="btn btn-warning btn-default">Devour it!</button>
+						</form>
+
+					</div>
 				</div>
-				<div class="col text-center">
-					{{!-- <form class="devour-form button-size">
-						<input input type="hidden" class="burger_id" type="text" value={{this.id}}><br>
-						<button type="submit" class="btn btn-primary btn-default">Devour it!</button>
-					</form> --}}
-				</div>
-				{{/unless}}
-			  {{/each}}
+
 			</div>
+
+			{{/unless}}
+			{{/each}}
+
 		</div>
-		<div class="col-md-6 text-center" class="task">
-			  {{#each burger_data}}
-			  	{{#if this.devoured}}
-			  		<input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}" readonly>
-				{{/if}}
-			  {{/each}}
+		<div class="col-md-6 text-center">
+
+			<h5>Burger History</h5>
+			{{#each burger_data}}
+			{{#if this.devoured}}
+			<input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}">
+			{{/if}}
+			{{/each}}
 		</div>
 	</div>
 </div>
 
-<div class="container mt-5">
-    <h3>Enter a burger you want to eat below!</h3>
-	<div class="row">
-		<div class="col-md-12 text-center enter_section">
-			<form action="/burgers/create" method="POST">
-				<input type="text" class="form-control" name="burger_name" value="" id="enter_text" placeholder="Enter burger here">
-				<button type="submit" class="btn btn-primary mb-5 mt-3 btn-lg btn-block" id="text-enter-button">Submit Your Burger</button>
-
-                {{!-- <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button> --}}
-			</form>
-			
-		</div>
-	</div>
-</div>
